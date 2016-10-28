@@ -1,0 +1,11 @@
+<collection_policy xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:schemaLocation="http://www.islandora.ca http://syn.lib.umanitoba.ca/collection_policy.xsd">
+    <content_models>
+        <content_model dsid="ISLANDORACM" name="Islandora Collection Model ~ islandora:collectionCModel" namespace="islandora:1" pid="islandora:collectionCModel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for library article ~ fba:library_article_cmodel" namespace="ealit:1" pid="fba:library_article_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for library chapter ~ fba:library_chapter_cmodel" namespace="ealit:1" pid="fba:library_chapter_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for library monograph ~ fba:library_monograph_cmodel" namespace="ealit:1" pid="fba:library_monograph_cmodel"></content_model>
+    </content_models>
+    <search_terms></search_terms>
+    <staging_area></staging_area>
+    <relationship>isMemberOfCollection</relationship>
+</collection_policy>

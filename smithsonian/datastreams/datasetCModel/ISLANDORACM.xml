@@ -1,0 +1,656 @@
+
+<content_model xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Standard_Map" xsi:schemaLocation="http://www.islandora.ca http://islandora.coalliance.org/sites/iexplore.coalliance.org/modules/fedora_repository/islandoracm.xsd">
+  <mimetypes>
+    <type>application/msaccess</type>
+    <type>application/msexcel</type>
+    <type>application/mspowerpoint</type>
+    <type>application/msword</type>
+    <type>application/octet-stream</type>
+    <type>application/pdf</type>
+    <type>application/rtf</type>
+    <type>application/vnd.ms-excel.sheet.macroEnabled.12</type>
+    <type>application/vnd.ms-excel</type>
+    <type>application/vnd.ms-powerpoint.presentation.macroEnabled.12</type>
+    <type>application/vnd.ms-powerpoint.slideshow.macroEnabled.12</type>
+    <type>application/vnd.ms-powerpoint</type>
+    <type>application/vnd.ms-project</type>
+    <type>application/vnd.ms-word.document.macroEnabled.12</type>
+    <type>application/vnd.openxmlformats-officedocument.wordprocessingml.document</type>
+    <type>application/vnd.openxmlformats-officedocument.presentationml.presentation</type>
+    <type>application/vnd.openxmlformats-officedocument.presentationml.slideshow</type>
+    <type>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</type>
+    <type>application/xml</type>
+    <type>application/x-shockwave-flash</type>
+    <type>application/x-zip</type>
+    <type>application/zip</type>
+    <type>audio/midi</type>
+    <type>audio/mpeg</type>
+    <type>audio/wav</type>
+    <type>audio/x-aiff</type>
+    <type>audio/x-mpeg</type>
+    <type>audio/x-pn-realaudio</type>
+    <type>audio/x-wav</type>
+    <type>image/gif</type>
+    <type>image/jp2</type>
+    <type>image/jpeg</type>
+    <type>image/png</type>
+    <type>image/raw</type>
+    <type>image/tiff</type>
+    <type>image/x-raw</type>
+    <type>text/html</type>
+    <type>text/plain</type>
+    <type>text/rtf</type>
+    <type>text/xml</type>
+    <type>video/mp4</type>
+    <type>video/mpeg</type>
+    <type>video/quicktime</type>
+    <type>video/x-msvideo</type>
+  </mimetypes>
+  <ingest_rules></ingest_rules>
+  <datastreams>
+    <datastream dsid="JPG">
+      <display_method class="IslandoraHook" default="true" file="IslandoraHook.inc" method="render" module="content_model_viewer"></display_method>
+    </datastream>
+  </datastreams>
+  <forms>
+    <form class="ModsDocument" dsid="MODS" edit_class="ADRBasicEditFormBuilder" edit_file="builders/ADRBasicEditFormBuilder.inc" edit_module="islandora_form_builder" file="documents/ModsDocument.inc" ingest_class="ADRBasicIngestFormBuilder" ingest_file="builders/ADRBasicIngestFormBuilder.inc" ingest_module="islandora_form_builder" module="islandora_form_builder" name="colorado">
+      <textfield>
+        <title>Title</title>
+        <required>true</required>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:titleInfo[not(@type)]/mods:title</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <textfield>
+        <title>Alternative Title</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:titleInfo[@type=&apos;alternative&apos;]/mods:title</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;titleInfo type=&apos;alternative&apos;&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <tabpanel>
+        <collapsed>false</collapsed>
+        <collapsible>true</collapsible>
+        <title>Creator</title>
+        <content>
+          <textfield>
+            <title>Creator</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:namePart[not(@type)]</path>
+                <element>namePart</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">(/mods:mods/mods:name[@type=&apos;personal&apos;]/mods:role[mods:roleTerm=&apos;creator&apos;]/..)</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;name type=&apos;personal&apos;&gt;&lt;role&gt;&lt;roleTerm authority=&quot;marcrelator&quot; type=&quot;text&quot;&gt;creator&lt;/roleTerm&gt;&lt;/role&gt;&lt;/name&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <tabpanel>
+        <title>Contributor</title>
+        <content>
+          <textfield>
+            <title>Contributor</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:namePart[not(@type)]</path>
+                <element>namePart</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">(/mods:mods/mods:name[@type=&apos;personal&apos;]/mods:role[mods:roleTerm=&apos;contributor&apos;]/..)</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;name type=&apos;personal&apos;&gt;&lt;role&gt;&lt;roleTerm authority=&quot;marcrelator&quot; type=&quot;text&quot;&gt;contributor&lt;/roleTerm&gt;&lt;/role&gt;&lt;/name&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <tabpanel>
+        <title>Corporate Creator</title>
+        <content>
+          <textfield>
+            <title>Name</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:namePart[not(@type)]</path>
+                <element>namePart</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">(/mods:mods/mods:name[@type=&apos;corporate&apos;]/mods:role[mods:roleTerm=&apos;creator&apos;]/..)</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;name type=&apos;corporate&apos;&gt;&lt;role&gt;&lt;roleTerm authority=&quot;marcrelator&quot; type=&quot;text&quot;&gt;creator&lt;/roleTerm&gt;&lt;/role&gt;&lt;/name&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <tabpanel>
+        <title>Corporate Contributor</title>
+        <content>
+          <textfield>
+            <title>Name</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:namePart[not(@type)]</path>
+                <element>namePart</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">(/mods:mods/mods:name[@type=&apos;corporate&apos;]/mods:role[mods:roleTerm=&apos;contributor&apos;]/..)</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;name type=&apos;corporate&apos;&gt;&lt;role&gt;&lt;roleTerm authority=&quot;marcrelator&quot; type=&quot;text&quot;&gt;contributor&lt;/roleTerm&gt;&lt;/role&gt;&lt;/name&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <select>
+        <title>Type of Resource</title>
+        <options ignoreFirstOption="true">
+          <option>Please Select One...</option>
+          <option>text</option>
+          <option>cartographic</option>
+          <option>sound recording</option>
+          <option>still image</option>
+          <option>moving image</option>
+          <option>mixed material</option>
+        </options>
+        <required>true</required>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:typeOfResource</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>typeOfResource</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </select>
+      <fieldset>
+        <title>Origin Information</title>
+        <content>
+          <textfield>
+            <title>Place of Publication</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:place/mods:placeTerm[@type=&apos;text&apos;]</path>
+                <xml>&lt;place&gt;&lt;placeTerm type=&apos;text&apos;&gt;%value%&lt;/placeTerm&gt;&lt;/place&gt;</xml>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <textfield>
+            <title>Publisher</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:publisher</path>
+                <element>publisher</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <textfield>
+            <title>Date Issued</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:dateIssued</path>
+                <element>dateIssued</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <textfield>
+            <title>Date Created</title>
+            <required>true</required>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:dateCreated</path>
+                <xml>&lt;dateCreated keyDate=&quot;yes&quot;&gt;%value%&lt;/dateCreated&gt;</xml>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <textfield>
+            <title>Copyright Date</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:copyrightDate</path>
+                <element>copyrightDate</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <set>
+            <title>Other Date</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:dateOther</path>
+                <element>dateOther</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </set>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:originInfo</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>originInfo</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </fieldset>
+      <set>
+        <title>Genre</title>
+        <description>MARC Genre Term List (marcgt): http://www.loc.gov/standards/valuelist/marcgt.html</description>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:genre[@type=&apos;marcgt&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;genre authority=&quot;marcgt&quot;&gt;%value%&lt;/genre&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <textfield>
+        <title>Language</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:language</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;language&gt;&lt;languageTerm type=&quot;text&quot;&gt;%value%&lt;/languageTerm&gt;&lt;/language&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <fieldset>
+        <title>Physical Description</title>
+        <collapsed>false</collapsed>
+        <collapsible>true</collapsible>
+        <content>
+          <textfield>
+            <title>Extent</title>
+            <description>Include units (e.g., pages)</description>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:extent</path>
+                <element>extent</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <textfield>  
+          <title>Form</title>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:form</path>
+                <element>form</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textfield>
+          <select>
+            <title>Digitial Origin</title>
+            <options ignoreFirstOption="true">
+              <option>Please Select One...</option>
+              <option>born digital</option>
+              <option>reformatted digital</option>
+              <option>digitized microfilm</option>
+              <option>digitized other analog</option>
+            </options>
+            <required>true</required>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:digitalOrigin</path>
+                <element>digitalOrigin</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </select>
+          <tabpanel>
+            <title>Physical Node</title>
+            <content>
+              <textarea>
+                <title>Note</title>
+                <form_builder>
+                  <xpath>
+                    <path full="false">self::node()</path>
+                    <element></element>
+                  </xpath>
+                  <require_value>false</require_value>
+                </form_builder>
+              </textarea>
+            </content>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:note</path>
+                <element>note</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </tabpanel>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:physicalDescription</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>physicalDescription</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </fieldset>
+      <textarea>
+        <title>Description</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:abstract</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>abstract</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textarea>
+      <set>
+        <title>Target Audience</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:targetAudience</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>targetAudience</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <tabpanel>
+        <title>Notes</title>
+        <content>
+          <textarea>
+            <title>Note</title>
+            <form_builder>
+              <xpath>
+                <path full="false">self::node()</path>
+                <element></element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textarea>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:note[not(@type)]</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>note</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <tabpanel>
+        <title>Administrative Notes</title>
+        <content>
+          <textarea>
+            <title>Note</title>
+            <form_builder>
+              <xpath>
+                <path full="false">self::node()</path>
+                <element></element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textarea>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:note[@type=&apos;admin&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;note type=&quot;admin&quot;&gt;%value%&lt;/note&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <tabpanel>
+        <title>Funding Notes</title>
+        <content>
+          <textarea>
+            <title>Note</title>
+            <form_builder>
+              <xpath>
+                <path full="false">self::node()</path>
+                <element></element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </textarea>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:note[@type=&apos;funding&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;note type=&quot;funding&quot;&gt;%value%&lt;/note&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </tabpanel>
+      <set>
+        <title>Topics</title>
+        <required>true</required>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:topic</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;topic&gt;%value%&lt;/topic&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <set>
+        <title>Places</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:geographic</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;geographic&gt;%value%&lt;/geographic&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <set>
+        <title>Dates</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:temporal</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;temporal&gt;%value%&lt;/temporal&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <set>
+        <title>People</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:name[@type=&apos;personal&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;name type=&quot;personal&quot;&gt;&lt;namePart&gt;%value%&lt;/namePart&gt;&lt;/name&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <set>
+        <title>Organizations</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:name[@type=&apos;corporate&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;name type=&quot;corporate&quot;&gt;&lt;namePart&gt;%value%&lt;/namePart&gt;&lt;/name&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <set>
+        <title>Subject Genre</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:subject/mods:genre</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;subject&gt;&lt;genre&gt;&lt;/genre&gt;&lt;/subject&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <textfield>
+        <title>Host Title</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:relatedItem[@type=&apos;host&apos;]/mods:titleInfo/mods:title</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;relatedItem type=&apos;host&apos;&gt;&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;&lt;/relatedItem&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <set>
+        <title>Constituent Title</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:relatedItem[@type=&apos;constituent&apos;]/mods:titleInfo/mods:title</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;relatedItem type=&apos;constituent&apos;&gt;&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;&lt;/relatedItem&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <textfield>
+        <title>Series Title</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:relatedItem[@type=&apos;series&apos;]/mods:titleInfo/mods:title</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;relatedItem type=&apos;series&apos;&gt;&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;&lt;/relatedItem&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <set>
+        <title>Local Identifier</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:identifier[@type=&apos;local&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;identifier type=&apos;local&apos;&gt;%value%&lt;/identifier&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </set>
+      <textfield>
+        <title>ISBN</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:identifier[@type=&apos;isbn&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;identifier type=&apos;isbn&apos;&gt;%value%&lt;/identifier&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <textfield>
+        <title>ISSN</title>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:identifier[@type=&apos;issn&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;identifier type=&apos;issn&apos;&gt;%value%&lt;/identifier&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textfield>
+      <textarea>
+        <title>Rights Statement</title>
+        <required>true</required>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:accessCondition[@type=&apos;useAndReproduction&apos;]</path>
+            <parent_path>/mods:mods</parent_path>
+            <xml>&lt;accessCondition type=&apos;useAndReproduction&apos;&gt;%value%&lt;/accessCondition&gt;</xml>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </textarea>
+      <hidden>
+        <value></value>
+        <content>
+          <hidden>
+            <value></value>
+            <content>
+              <hidden>
+                <value>English</value>
+                <form_builder>
+                  <xpath>
+                    <path full="false">mods:languageTerm[@type=&quot;text&quot; and @authority=&quot;iso639-2b&quot;]</path>
+                    <xml>&lt;languageTerm type=&quot;text&quot; authority=&quot;iso639-2b&quot;&gt;%value%&lt;/languageTerm&gt;</xml>
+                  </xpath>
+                  <require_value>false</require_value>
+                </form_builder>
+              </hidden>
+              <hidden>
+                <value>eng</value>
+                <form_builder>
+                  <xpath>
+                    <path full="false">mods:languageTerm[@type=&quot;code&quot; and @authority=&quot;iso639-2b&quot;]</path>
+                    <xml>&lt;languageTerm type=&quot;code&quot; authority=&quot;iso639-2b&quot;&gt;%value%&lt;/languageTerm&gt;</xml>
+                  </xpath>
+                  <require_value>false</require_value>
+                </form_builder>
+              </hidden>
+            </content>
+            <form_builder>
+              <xpath>
+                <path full="false">mods:languageOfCataloging</path>
+                <element>languageOfCataloging</element>
+              </xpath>
+              <require_value>false</require_value>
+            </form_builder>
+          </hidden>
+        </content>
+        <form_builder>
+          <xpath>
+            <path full="true">/mods:mods/mods:recordInfo</path>
+            <parent_path>/mods:mods</parent_path>
+            <element>recordInfo</element>
+          </xpath>
+          <require_value>false</require_value>
+        </form_builder>
+      </hidden>
+    </form>
+  </forms>
+  <ingest_form dsid="MODS" hide_file_chooser="true" page="2">
+    <form_builder_method class="CoCCCModsFormBuilder" file="plugins/CoCCCModsFormBuilder.inc" handler="handleModsForm" method="buildQDCForm" module="fedora_repository"></form_builder_method>
+    <form_elements></form_elements>
+  </ingest_form>
+  <edit_metadata_method class="CoCCCModsFormBuilder" dsid="MODS" file="plugins/CoCCCModsFormBuilder.inc" handler="handleEditMetadataForm" method="buildEditMetadataForm" module="fedora_repository"></edit_metadata_method>
+</content_model>

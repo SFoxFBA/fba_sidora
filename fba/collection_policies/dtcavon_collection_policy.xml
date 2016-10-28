@@ -1,0 +1,15 @@
+<collection_policy xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:schemaLocation="http://www.islandora.ca http://syn.lib.umanitoba.ca/collection_policy.xsd">
+    <content_models>
+        <content_model dsid="ISLANDORACM" name="Islandora Collection Model ~ islandora:collectionCModel" namespace="islandora:1" pid="islandora:collectionCModel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for activity class ~ fba:activity_cmodel" namespace="dtcavon:1" pid="fba:activity_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for dataset class ~ fba:dataset_cmodel" namespace="dtcavon:1" pid="fba:dataset_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for analysis sub class ~ fba:analysis_cmodel" namespace="dtcavon:1" pid="fba:analysis_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for literary review sub class ~ fba:litreview_cmodel" namespace="dtcavon:1" pid="fba:litreview_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for measurement sub class ~ fba:measurement_cmodel" namespace="dtcavon:1" pid="fba:measurement_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for simulation sub class ~ fba:simulation__cmodel" namespace="dtcavon:1" pid="fba:simulation_cmodel"></content_model>
+        <content_model dsid="ISLANDORACM" name="FBA content model for synthesis sub class ~ fba:synthesis_cmodel" namespace="dtcavon:1" pid="fba:synthesis_cmodel"></content_model>
+    </content_models>
+    <search_terms></search_terms>
+    <staging_area></staging_area>
+    <relationship>isMemberOfCollection</relationship>
+</collection_policy>

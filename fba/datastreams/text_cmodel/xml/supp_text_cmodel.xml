@@ -1,0 +1,23 @@
+<content_model name="supp_text_cmodel" xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.islandora.ca http://localhost/islandoracm.xsd">
+    <mimetypes>
+        <type>text/plain</type>
+    </mimetypes>
+    <ingest_rules>
+        <rule>
+            <applies_to>text/plain</applies_to>
+            <ingest_methods>
+                <ingest_method class="fits" dsid="TECHMD_FITS" file="plugins/fits.inc" method="extractFits" module="fedora_repository" modified_files_ext="">
+                </ingest_method>
+            </ingest_methods>
+        </rule>
+    </ingest_rules>
+    <datastreams>
+        <datastream dsid="DTCA">
+            <display_method class="DatasetManipulation" file="fba_dataset_obj_process.inc" method="showFormattedSuppText" module="fba_dataset" />
+        </datastream>
+        <datastream dsid="OBJ" />
+        <datastream dsid="TECHMD_FITS"/>
+        <datastream dsid="OCR"/>
+        <datastream dsid="TN"/>
+    </datastreams>
+</content_model>

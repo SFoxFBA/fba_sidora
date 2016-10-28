@@ -1,0 +1,11 @@
+<content_model xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:schemaLocation="http://www.islandora.ca http://islandora.coalliance.org/sites/iexplore.coalliance.org/modules/fedora_repository/islandoracm.xsd">
+    <mimetypes/>
+    <ingest_rules/>
+    <datastreams/>
+    <forms/>
+    <ingest_form dsid="" hide_file_chooser="" page="">
+        <form_builder_method class="" file="" handler="" method="" module=""></form_builder_method>
+        <form_elements></form_elements>
+    </ingest_form>
+    <edit_metadata_method class="" dsid="" file="" handler="" method="" module=""></edit_metadata_method>
+</content_model>

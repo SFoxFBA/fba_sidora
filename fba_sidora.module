@@ -1,0 +1,506 @@
+<?php
+
+/**
+ * Implements hook_islandora_xml_form_builder_forms().
+ */
+function fba_sidora_islandora_xml_form_builder_forms() {
+  $form_path = drupal_get_path('module', 'fba_sidora') . '/fba/FBAforms';
+  return array(
+    'FBA Synthesis' => array('form_file' => "$form_path/FBASynthesisSubClassForm.xml",),
+    'FBA Simulation' => array('form_file' => "$form_path/FBASimulationSubClassForm.xml",),
+    'FBA Literature Review' => array('form_file' => "$form_path/FBALiteratureReviewSubClassForm.xml",),
+    'FBA Measurement' => array('form_file' => "$form_path/FBAMeasurementSubClassForm.xml",),
+    'FBA Analysis' => array('form_file' => "$form_path/FBAAnalysisSubClassForm.xml",),
+    'FBA Dataset' => array('form_file' => "$form_path/FBADatasetClassForm.xml",),
+    'FBA Activity' => array('form_file' => "$form_path/FBAActivityClassForm.xml",),
+    'FBA Supplementary Media' => array('form_file' => "$form_path/FBASupplementaryMediaClassForm.xml",),
+    'FBA Supplementary Generic' => array('form_file' => "$form_path/FBASupplementaryGenericClassForm.xml",),
+    'FBA Vocab Pref Term' => array('form_file' => "$form_path/FBAVocabPrefTermForm.xml",),
+    'FBA Vocab Non Pref Term' => array('form_file' => "$form_path/FBAVocabNonPrefTermForm.xml",),
+    'FBA Geo Pref Term' => array('form_file' => "$form_path/FBAGeoPrefTermForm.xml",),
+    'FBA Geo Non Pref Term' => array('form_file' => "$form_path/FBAGeoNonPrefTermForm.xml",),
+  );
+}
+
+/**
+ * Implements hook_islandora_xml_form_builder_form_associations().
+ */
+function fba_sidora_islandora_xml_form_builder_form_associations() {
+  return array(
+    'FBASynthesisSubClassForm' => array(
+      'content_model' => 'fba:synthesis_cmodel',
+      'form_name' => 'FBA Synthesis',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASimulationSubClassForm' => array(
+      'content_model' => 'fba:simulation_cmodel',
+      'form_name' => 'FBA Simulation',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBALiteratureReviewSubClassForm' => array(
+      'content_model' => 'fba:litreview_cmodel',
+      'form_name' => 'FBA Literature Review',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBAMeasurementSubClassForm' => array(
+      'content_model' => 'fba:measurement_cmodel',
+      'form_name' => 'FBA Measurement',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBAAnalysisSubClassForm' => array(
+      'content_model' => 'fba:analysis_cmodel',
+      'form_name' => 'FBA Analysis',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBADatasetClassForm' => array(
+      'content_model' => 'fba:dataset_cmodel',
+      'form_name' => 'FBA Dataset',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBAActivityClassForm' => array(
+      'content_model' => 'fba:activity_cmodel',
+      'form_name' => 'FBA Activity',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASupplementaryMediaClassForm' => array(
+      'content_model' => 'fba:supp_basic_image_cmodel',
+      'form_name' => 'FBA Supplementary Media',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASupplementaryGenericClassFormTxt' => array(
+      'content_model' => 'fba:supp_text_cmodel',
+      'form_name' => 'FBA Supplementary Generic',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASupplementaryGenericClassFormWord' => array(
+      'content_model' => 'fba:supp_word_cmodel',
+      'form_name' => 'FBA Supplementary Generic',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASupplementaryGenericClassFormXls' => array(
+      'content_model' => 'fba:supp_excel_cmodel',
+      'form_name' => 'FBA Supplementary Generic',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBASupplementaryGenericClassFormPdf' => array(
+      'content_model' => 'fba:supp_pdf_cmodel',
+      'form_name' => 'FBA Supplementary Generic',
+      'dsid' => 'DTCA',
+      'title_field' => array('title'),
+      'transform' => 'dtca_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBAVocabPrefTermForm' => array(
+      'content_model' => 'fba:vocabpref_CModel',
+      'form_name' => 'FBA Vocab Pref Term',
+      'dsid' => 'MADS',
+      'title_field' => array('authority', 'topic'),
+      'transform' => 'vocabpref_mads_to_dc.xsl',
+      'template' => FALSE,
+    ),
+    'FBAVocabNonPrefTermForm' => array(
+      'content_model' => 'fba:vocabnonpref_CModel',
+      'form_name' => 'FBA Vocab Non Pref Term',
+      'dsid' => 'MADS',
+      'title_field' => array('variant', 'topic'),
+      'transform' => 'vocabnonpref_mads_to_dc.xsl',
+      'template' => FALSE,),
+    'FBAGeoPrefTermForm' => array(
+      'content_model' => 'fba:geopref_CModel',
+      'form_name' => 'FBA Geo Pref Term',
+      'dsid' => 'MADS',
+      'title_field' => array('authority', 'topic'),
+      'transform' => 'geopref_mads_to_dc.xsl',
+      'template' => FALSE,),
+    'FBAGeoNonPrefTermForm' => array(
+      'content_model' => 'fba:geononpref_CModel',
+      'form_name' => 'FBA Geo Non Pref Term',
+      'dsid' => 'MADS',
+      'title_field' => array('variant', 'topic'),
+      'transform' => 'geononpref_mads_to_dc.xsl',
+      'template' => FALSE,),
+  );
+}
+
+/**
+ * 
+ * @param IslandoraTuque $connection
+ * @return array
+ */
+function fba_sidora_islandora_required_objects(IslandoraTuque $connection) {
+  $module_path = drupal_get_path('module', 'fba_sidora');
+  //si:root
+  // COLLECTION_POLICY Datastream.
+  $siroot_datastreams[] = array('COLLECTION_POLICY', 'Collection policy', 'text/xml', "$module_path/fba/collection_policies/fba_sidora_collection_policy.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'si:root', 'Sidora Top-level Collection', $siroot_datastreams);
+  //si:user-projects doing a straight reingest wipes out the existing rels-exts!
+  $createuserproject = FALSE; //default to safest mode
+  //try {
+  //$siupobj = $connection->repository->getObject('si:user-projects');
+  //$createuserproject = FALSE;
+  //}
+  //catch (Exception $exc) {
+  //This means that the object doesn't exist
+//    $createuserproject = TRUE;
+//  }
+//  if ($createuserproject) {
+//    $siup_datastreams[] = array('COLLECTION_POLICY', 'Collection policy', 'text/xml', "$module_path/fba/collection_policies/fba_sidora_collection_policy.xml");
+//    $siup_relation[] = array('relationship' => 'hasModel', 'pid' => 'si:conceptCModel');
+//    $objectstoingest[] = fba_sidora_create_content_model($connection, 'si:user-projects', 'Sidora User Collection', $siup_datastreams, $siup_relation);
+//  }
+  //fba:root
+
+  $fbaroot_datastreams[] = array('COLLECTION_POLICY', 'Collection policy', 'text/xml', "$module_path/fba/collection_policies/fba_sidora_collection_policy.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:root', 'FBA Sidora Top-level Collection', $fbaroot_datastreams);
+
+  //fba:user-projects doing a straight reingest wipes out the existing rels-exts!
+
+  $createfbauserproject = FALSE; //default to safest mode for now until above can be fixed
+  /*  try {
+    $siupobj = $connection->repository->getObject('fba:user-projects');
+    $createfbauserproject = FALSE;
+    }
+    catch (Exception $exc) {
+    //This means that the object doesn't exist
+    $createfbauserproject = TRUE;
+    } */
+  if ($createfbauserproject) {
+    $fbaup_datastreams[] = array('COLLECTION_POLICY', 'Collection policy', 'text/xml', "$module_path/fba/collection_policies/fba_sidora_collection_policy.xml");
+    $fbaup_relation[] = array('relationship' => 'hasModel', 'pid' => 'si:conceptCModel');
+    $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:user-projects', 'FBA Sidora User Collection', $fbaup_datastreams, $fbaup_relation);
+  }
+  // 'si:conceptCModel'
+  $con_datastreams[] = array('EAC-CPF', 'EAC-CPF', 'text/xml', "$module_path/smithsonian/datastreams/conceptCModel/EAC-CPF.xml");
+  $con_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/smithsonian/datastreams/conceptCModel/ISLANDORACM.xml");
+  $con_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/POLICY.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'si:conceptCModel', 'Smithsonian Concept', $con_datastreams);
+//  'si:datasetCModel',
+  $ds_datastreams[] = array('FGDC', 'FGDC', 'text/xml', "$module_path/smithsonian/datastreams/datasetCModel/ISLANDORACM.xml");
+  $ds_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/POLICY.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'si:datasetCModel', 'Smithsonian Dataset Concept', $ds_datastreams);
+//  'si:resourceCModel',
+  $res_datastreams[] = array('EAC-CPF', 'EAC-CPF', 'text/xml', "$module_path/smithsonian/datastreams/resourceCModel/EAC-CPF.xml");
+  $res_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/smithsonian/datastreams/resourceCModel/ISLANDORACM.xml");
+  $res_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/POLICY.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'si:resourceCModel', 'Smithsonian Resource', $res_datastreams);
+//  no files for the following yet 'si:codebookCModel',
+//  
+//  'fba:licence_cmodel',
+  $lic_mod_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/ISLANDORACM.xml");
+  $lic_mod_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/POLICY.xml");
+  $lic_mod_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/COLLECTION_POLICY.xml");
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:licence_cmodel', 'FBA Licence Resource', $lic_mod_datastreams);
+
+//  'fba:licence_collection',
+  $lic_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/POLICY.xml");
+  $lic_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fba_licence_collection_policy.xml");
+  $lic_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:root');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:licence_collection', 'FBA Licence Collection', $lic_datastreams, $lic_relation);
+
+//  'fbalicence:1',
+  $lic1_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/POLICY.xml");
+  $lic1_datastreams[] = array('LICENCE', 'Licence', 'text/html', "$module_path/fba/includes/licence1.txt");
+  $lic1_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:licence_collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbalicence:1', 'FBA Licence', $lic1_datastreams, $lic1_relation);
+
+//  'fbalicence:2',
+  $lic2_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/datastreams/licence_cmodel/POLICY.xml");
+  $lic2_datastreams[] = array('LICENCE', 'Licence', 'text/html', "$module_path/fba/includes/licence2.txt");
+  $lic2_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:licence_collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbalicence:2', 'FBA Licence', $lic2_datastreams, $lic2_relation);
+
+//AEDA collections
+  $aedac_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $aedac_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/aeda_collection_policy.xml");
+  $aedac_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png"); //TODO Is this a duplicate
+  $aedac_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'islandora:root');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'aeda:collection', 'AEDA Collection', $aedac_datastreams, $aedac_relation);
+
+//AEDA collections
+  $aest_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $aest_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/aest_collection_policy.xml");
+  $aest_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $aest_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'aeda:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'aest:collection', 'Atlantic Salmon Trust Collection', $aest_datastreams, $aest_relation);
+
+  $defra_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $defra_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/defra_collection_policy.xml");
+  $defra_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $defra_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'aeda:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'defra:collection', 'DEFRA Collections', $defra_datastreams, $defra_relation);
+
+  $ea_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $ea_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/ea_collection_policy.xml");
+  $ea_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $ea_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'aeda:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'ea:collection', 'Environment Agency Collections', $ea_datastreams, $ea_relation);
+
+  $fba_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $fba_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fba_collection_policy.xml");
+  $fba_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $fba_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'aeda:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:collection', 'FBA Collections', $fba_datastreams, $fba_relation);
+//end of level 1 collections
+//start of defra subcollections
+  $dtc_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $dtc_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/dtc_collection_policy.xml");
+  $dtc_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $dtc_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'defra:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'dtc:collection', 'DTC Data', $dtc_datastreams, $dtc_relation);
+
+  $ghgno_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $ghgno_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/ghg_collection_policy.xml");
+  $ghgno_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $ghgno_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'defra:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'ghgno:collection', 'GHG Nitrous Oxide Data', $ghgno_datastreams, $ghgno_relation);
+
+  $ghgemh_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $ghgemh_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/ghg_collection_policy.xml");
+  $ghgemh_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $ghgemh_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'defra:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'ghgemh:collection', 'GHG Methane Data', $ghgemh_datastreams, $ghgemh_relation);
+
+  $dtcavon_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $dtcavon_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/dtcavon_collection_policy.xml");
+  $dtcavon_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $dtcavon_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'dtc:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'dtcavon:collection', 'Avon DTC', $dtcavon_datastreams, $dtcavon_relation);
+
+  $dtceden_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $dtceden_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/dtceden_collection_policy.xml");
+  $dtceden_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $dtceden_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'dtc:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'dtceden:collection', 'Eden DTC', $dtceden_datastreams, $dtceden_relation);
+
+  $dtcwensum_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $dtcwensum_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/dtcwensum_collection_policy.xml");
+  $dtcwensum_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $dtcwensum_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'dtc:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'dtcwensum:collection', 'Wensum DTC', $dtcwensum_datastreams, $dtcwensum_relation);
+
+//ea collections
+  $eachryso_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $eachryso_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/eachryso_collection_policy.xml");
+  $eachryso_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $eachryso_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'ea:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'eachryso:collection', 'Chrysophytes Database', $eachryso_datastreams, $eachryso_relation);
+
+  $ealit_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $ealit_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/ealit_collection_policy.xml");
+  $ealit_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $ealit_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'ea:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'ealit:collection', 'Grey Literature', $ealit_datastreams, $ealit_relation);
+
+//fba collections
+  $fbads_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $fbads_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fbads_collection_policy.xml");
+  $fbads_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $fbads_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbads:collection', 'Datasets', $fbads_datastreams, $fbads_relation);
+
+  $fbaia_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $fbaia_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fbaia_collection_policy.xml");
+  $fbaia_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $fbaia_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbaia:collection', 'FBA Image Archive', $fbaia_datastreams, $fbaia_relation);
+
+  $fbalc_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $fbalc_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fbalc_collection_policy.xml");
+  $fbalc_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $fbalc_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbalc:collection', 'Library Catalogue', $fbalc_datastreams, $fbalc_relation);
+
+  $fbauc_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/anonymous_view_policy.xml");
+  $fbauc_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/collection_policies/fbauc_collection_policy.xml");
+  $fbauc_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/collection_policies/TN.png");
+  $fbauc_relation[] = array(
+    'relationship' => 'isMemberOfCollection',
+    'pid' => 'fba:collection');
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fbauc:collection', 'Unpublished Collections', $fbauc_datastreams, $fbauc_relation);
+
+//Definition for each CModel at this level
+//Next CModel - FBA from here on
+  $fbaan_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/analysis_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbaan_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbaan_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/analysis_cmodel/COLLECTION_POLICY.xml");
+  $fbaan_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/analysis_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:analysis_cmodel', 'FBA Analysis Resource', $fbaan_datastreams, array(), FALSE); //FALSE stops ->models being defined which tags it as a concept for some reason
+//Next Model
+  $fbamt_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/measurement_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbamt_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbamt_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/measurement_cmodel/COLLECTION_POLICY.xml");
+  $fbant_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/measurement_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:measurement_cmodel', 'FBA Measurement Resource', $fbamt_datastreams, array(), FALSE); //FALSE stops ->models being defined which tags it as a concept for some reason
+//Next Model
+  $fbalr_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/litreview_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbalr_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbalr_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/litreview_cmodel/COLLECTION_POLICY.xml");
+  $fbalr_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/litreview_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:litreview_cmodel', 'FBA Literature Review Resource', $fbalr_datastreams, array(), FALSE); //FALSE stops ->models being defined which tags it as a concept for some reason
+//Next Model
+  $fbasi_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/simulation_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbasi_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbasi_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/simulation_cmodel/COLLECTION_POLICY.xml");
+  $fbasi_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/simulation_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:simulation_cmodel', 'FBA Simulation Resource', $fbasi_datastreams, array(), FALSE); //FALSE stops ->models being defined which tags it as a concept for some reason
+//Next Model
+  $fbasy_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/synthesis_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbasy_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbasy_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/synthesis_cmodel/COLLECTION_POLICY.xml");
+  $fbasy_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/synthesis_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:synthesis_cmodel', 'FBA Synthesis Resource', $fbasy_datastreams, array(), FALSE); //FALSE stops ->models being defined which tags it as a concept for some reason
+//Next Model (NB this is a concept)
+  $fbaac_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/activity_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbaac_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbaac_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/activity_cmodel/COLLECTION_POLICY.xml");
+  $fbaac_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/activity_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:activity_cmodel', 'FBA Activity Concept', $fbaac_datastreams, array());
+//Next Model (NB this is a concept)
+  $fbadset_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/dataset_cmodel/ISLANDORACM.xml"); //TODO duplicated?
+  $fbadset_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbadset_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/dataset_cmodel/COLLECTION_POLICY.xml");
+  $fbadset_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/dataset_cmodel/TN.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:dataset_cmodel', 'FBA Dataset Concept', $fbadset_datastreams, array());
+//Next Model
+  $fbasbi_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/image_cmodel/xml/supp_basic_image_cmodel.xml"); //TODO duplicated?
+  $fbasbi_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbasbi_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/image_cmodel/xml/image_collection_policy.xml");
+  $fbasbi_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/image_cmodel/images/Crystal_Clear_filesystem_folder_grey.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:supp_basic_image_cmodel', 'FBA content model for basic image', $fbasbi_datastreams, array());
+//Next Model
+  $fbaspdf_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/pdf_cmodel/xml/supp_pdf_cmodel.xml"); //TODO duplicated?
+  $fbaspdf_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbaspdf_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/pdf_cmodel/xml/pdf_collection_policy.xml");
+  $fbaspdf_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/pdf_cmodel/images/Crystal_Clear_mimetype_pdf.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:supp_pdf_cmodel', 'FBA content model for pdf', $fbaspdf_datastreams, array());
+//Next Model
+  $fbastxt_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/text_cmodel/xml/supp_text_cmodel.xml"); //TODO duplicated?
+  $fbastxt_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbastxt_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/text_cmodel/xml/text_collection_policy.xml");
+  $fbastxt_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/text_cmodel/images/Crystal_Clear_mimetype_pdf.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:supp_text_cmodel', 'FBA content model for text file', $fbastxt_datastreams, array());
+//Next Model
+  $fbaswd_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/word_cmodel/xml/supp_word_cmodel.xml"); //TODO duplicated?
+  $fbaswd_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbaswd_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/word_cmodel/xml/word_collection_policy.xml");
+  $fbaswd_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/word_cmodel/images/Crystal_Clear_mimetype_pdf.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:supp_word_cmodel', 'FBA content model for microsoft word file', $fbaswd_datastreams, array());
+//Next Model
+//Next Model
+  $fbasxls_datastreams[] = array('ISLANDORACM', 'ISLANDORACM', 'text/xml', "$module_path/fba/datastreams/excel_cmodel/xml/supp_excel_cmodel.xml"); //TODO duplicated?
+  $fbasxls_datastreams[] = array('POLICY', 'POLICY', 'text/xml', "$module_path/fba/security_policies/POLICY.xml"); //TODO duplicated?
+  $fbasxls_datastreams[] = array('COLLECTION_POLICY', 'COLLECTION_POLICY', 'text/xml', "$module_path/fba/datastreams/excel_cmodel/xml/excel_collection_policy.xml");
+  $fbasxls_datastreams[] = array('TN', 'thumbnail', 'image/png', "$module_path/fba/datastreams/excel_cmodel/images/Crystal_Clear_mimetype_pdf.png"); //TODO duplicated?
+  $objectstoingest[] = fba_sidora_create_content_model($connection, 'fba:supp_excel_cmodel', 'FBA content model for microsoft excel file', $fbasxls_datastreams, array());
+//End of definitions
+
+
+  return array(
+    'fba_sidora' => array(
+      'title' => 'FBA Sidora Core',
+      'objects' => $objectstoingest,
+    ),
+  );
+}
+
+function fba_sidora_create_content_model($connection, $pid, $label, $datastreams, $relationships = array(), $defineModels = TRUE) {
+  $object = $connection->repository->constructObject($pid);
+  $object->owner = 'fedoraAdmin';
+  $object->label = $label;
+  if ($defineModels) {
+    $object->models = 'islandora:collectionCModel'; //In the php code, having this set means it's a concept.
+  }
+
+
+  foreach ($relationships as $relationship) {
+    $object->relationships->add(FEDORA_RELS_EXT_URI, $relationship['relationship'], $relationship['pid']);
+  }
+  if (count($datastreams) > 0) {
+    foreach ($datastreams as $datastreamvalues) {
+      $mimetype = $datastreamvalues[2];
+      if (strpos($mimetype, 'image/') !== FALSE) {
+        $dstype = 'M';
+      }
+      else {
+        $dstype = 'X';
+      }
+      $datastream = $object->constructDatastream($datastreamvalues[0], $dstype);
+      $datastream->label = $datastreamvalues[1];
+      $datastream->mimetype = $mimetype;
+      $datastream->setContentFromFile($datastreamvalues[3], FALSE);
+      $object->ingestDatastream($datastream);
+    }
+  }
+  return $object;
+}

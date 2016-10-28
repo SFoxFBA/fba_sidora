@@ -1,0 +1,10 @@
+name = FBA Sidora
+description = FBA customisations of Smithsonian Institution interface to Fedora Commons Repository for research information
+core = 7.x
+package = Smithsonian
+dependencies[] = sidora
+dependencies[] = islandora
+dependencies[] = xml_forms
+dependencies[] = islandora_xacml_api
+dependencies[] = devel
+configure = admin/fba-sidora/configure

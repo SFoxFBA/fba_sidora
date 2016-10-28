@@ -1,0 +1,19 @@
+<content_model xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Standard_Map" xsi:schemaLocation="http://www.islandora.ca http://islandora.coalliance.org/sites/iexplore.coalliance.org/modules/fedora_repository/islandoracm.xsd">
+    <mimetypes>
+        <type>text/csv</type>
+    </mimetypes>
+    <ingest_rules></ingest_rules>
+    <datastreams>
+        <datastream dsid="DTCA">
+            <display_method class="DatasetManipulation" file="fba_dataset_obj_process.inc" method="showFormattedActivity" module="fba_dataset" />
+        </datastream>
+        <datastream dsid="TN"/>
+    </datastreams>
+    <forms>
+    </forms>
+    <ingest_form dsid="" hide_file_chooser="" page="">
+        <form_builder_method class="" file="" handler="" method="" module=""></form_builder_method>
+        <form_elements></form_elements>
+    </ingest_form>
+    <edit_metadata_method class="" dsid="" file="" handler="" method="" module=""></edit_metadata_method>
+</content_model>

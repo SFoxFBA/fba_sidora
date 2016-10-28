@@ -1,0 +1,22 @@
+<collection_policy xmlns="http://www.islandora.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:schemaLocation="http://www.islandora.ca http://syn.lib.umanitoba.ca/collection_policy.xsd">
+    <content_models>
+        <content_model dsid="ISLANDORACM" name="Islandora Collection Model ~ islandora:collectionCModel" namespace="islandora:1" pid="islandora:collectionCModel"/>
+        <content_model dsid="ISLANDORACM" name="Analysis"           namespace="dtcan:" pid="fba:analysis_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Measurement"        namespace="dtcmt:" pid="fba:measurement_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Literature Review"  namespace="dtclr:" pid="fba:litreview_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Simulation"         namespace="dtcsi:" pid="fba:simulation_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Synthesis"          namespace="dtcsy:" pid="fba:synthesis_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Image"              namespace="dtcbim:" pid="fba:supp_basic_image_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="PDF"                namespace="dtcpdf:" pid="fba:supp_pdf_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Text"               namespace="dtctxt:" pid="fba:supp_text_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Excel"              namespace="dtcxl:" pid="fba:supp_excel_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Word"               namespace="dtcwd:" pid="fba:supp_word_cmodel"/>
+        <!--content_model dsid="ISLANDORACM" name="Large Image"        namespace="dtclim:" pid="fba:supp_large_image_cmodel"/-->
+    </content_models>
+    <concept_models>
+        <content_model dsid="ISLANDORACM" name="Dataset" namespace="dtcds:" pid="fba:dataset_cmodel"/>
+        <content_model dsid="ISLANDORACM" name="Activity" namespace="dtcac:" pid="fba:activity_cmodel"/>
+    </concept_models>
+    <search_terms/>
+    <relationship>isMemberOfCollection</relationship>
+</collection_policy>
