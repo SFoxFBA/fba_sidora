@@ -102,9 +102,7 @@
                 <properties>
                     <type>tabs</type>
                     <access>TRUE</access>
-                    <description>Select from a list of subject keywords that identify the object when performing searches. Only add subject terms from the controlled vocabulary. As you begin typing the autocomplete functionality will allow you to select the relevant term to reduce typing. If the required term is not present, suggest the term indicating where you think it should sit in the hierarchy (e.g. provide its broader term) by sending an email to vocabulary@fba.org.uk
-                    
-                    </description>
+                    <description>Select from a list of subject keywords that identify the object when performing searches. Only add subject terms from the controlled vocabulary. As you begin typing the autocomplete functionality will allow you to select the relevant term to reduce typing. If the required term is not present, suggest the term indicating where you think it should sit in the hierarchy (e.g. provide its broader term) by sending an email to vocabulary@fba.org.uk</description>
                     <required>FALSE</required>
                     <title>Subject Keywords</title>
                     <tree>TRUE</tree>
